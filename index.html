@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>PC Fund Tracker</title>
+    <title>Savings Tracker</title>
 
     <style>
       * {
@@ -28,7 +28,7 @@
 
         color: white;
 
-        overflow: hidden;
+        overflow-y:auto;
       }
 
       .container {
@@ -197,7 +197,7 @@
 
         font-weight: bold;
 
-        background: linear-gradient(90deg, #7771a8, #3b82f6);
+        background: linear-gradient(90deg, #1eb1cb, #3b82f6, #684da5);
 
         color: white;
       }
@@ -269,23 +269,23 @@
 
         cursor: pointer;
 
-        background: linear-gradient(90deg, #06b6d4, #6b93d2);
+        background: linear-gradient(90deg, #1eb1cb, #3b82f6, #684da5);
 
         color: white;
       }
 
-      .history {
-        margin-top: 35px;
-      }
+      #historyList {
+        margin-top: 15px;
 
-      .history h2 {
-        margin-bottom: 15px;
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 10px;
       }
 
       .item {
         padding: 18px;
-
-        margin-top: 10px;
 
         border-radius: 20px;
 
@@ -294,6 +294,43 @@
         display: flex;
 
         justify-content: space-between;
+
+        align-items: center;
+      }
+      .history {
+        margin-top: 35px;
+      }
+
+      .history h2 {
+        margin-bottom: 15px;
+
+        font-size: 28px;
+      }
+
+      #historyList {
+        max-height: 250px;
+
+        overflow-y: auto;
+
+        padding-right: 4px;
+      }
+
+      #historyList::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      #historyList::-webkit-scrollbar-thumb {
+        background: #475569;
+
+        border-radius: 20px;
+      }
+
+      .item:hover {
+        transform: translateY(-2px);
+
+        background: rgba(255, 255, 255, 0.08);
+
+        transition: 0.3s;
       }
     </style>
   </head>
@@ -309,29 +346,33 @@
         <div class="goalBox">
           <p>Goal Amount</p>
 
-          <input value="20000" type="number" />
+          <input id="goalInput" value="20000" type="number" />
         </div>
       </div>
 
       <div class="moneyBox">
         <p>Current Savings</p>
 
-        <div class="money">₹2200</div>
+        <div class="money" id="money">₹0</div>
 
         <div class="progressText">
           <span>Progress</span>
 
-          <span>11%</span>
+          <span id="percent">0%</span>
         </div>
 
         <div class="progress">
-          <div class="fill"></div>
+          <div class="fill" id="fill"></div>
         </div>
 
         <div class="edit">
-          <input placeholder="Edit savings amount" type="number" />
+          <input
+            id="editInput"
+            placeholder="Edit savings amount"
+            type="number"
+          />
 
-          <button>Update</button>
+          <button id="updateBtn">Update</button>
         </div>
       </div>
 
@@ -339,49 +380,37 @@
         <div class="card">
           <p>Saved Today</p>
 
-          <h2>₹140</h2>
+          <h2 id="saved">₹0</h2>
         </div>
 
         <div class="card">
           <p>Remaining</p>
 
-          <h2>₹17,800</h2>
+          <h2 id="remaining">₹20,000</h2>
         </div>
 
         <div class="card">
           <p>Total Days</p>
 
-          <h2>16</h2>
+          <h2 id="days">0</h2>
         </div>
       </div>
 
       <div class="addMoney">
-        <input placeholder="Saved today ₹" />
+        <input id="amountInput" placeholder="Saved today ₹" />
 
-        <button>+ Add Money</button>
+        <button id="addBtn">+ Add Money</button>
       </div>
 
       <div class="history">
         <h2>History</h2>
 
-        <div class="item">
-          <span>+₹300</span>
-
-          <span>Yesterday</span>
-        </div>
-
-        <div class="item">
-          <span>+₹140</span>
-
-          <span>2 Days Ago</span>
-        </div>
-
-        <div class="item">
-          <span>+₹500</span>
-
-          <span>Metro money 😭</span>
+        <div id="historyList">
+          
         </div>
       </div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
