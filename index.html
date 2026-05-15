@@ -332,6 +332,9 @@
 
         transition: 0.3s;
       }
+      #withdrawBtn {
+        background: linear-gradient(90deg, #ef4444, #dc2626);
+      }
       @media (max-width: 768px) {
         .container {
           padding: 20px;
@@ -449,9 +452,11 @@
       </div>
 
       <div class="addMoney">
-        <input id="amountInput" placeholder="Saved today ₹" />
+        <input id="amountInput" placeholder="Enter amount ₹" />
 
         <button id="addBtn">+ Add Money</button>
+
+        <button id="withdrawBtn">- Withdraw</button>
       </div>
 
       <div class="history">
