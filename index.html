@@ -28,7 +28,7 @@
 
         color: white;
 
-        overflow-y:auto;
+        overflow-y: auto;
       }
 
       .container {
@@ -332,6 +332,58 @@
 
         transition: 0.3s;
       }
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+
+          border-radius: 25px;
+        }
+
+        .top {
+          flex-direction: column;
+
+          gap: 20px;
+
+          align-items: stretch;
+        }
+
+        .goalBox {
+          width: 100%;
+        }
+
+        .money {
+          font-size: 48px;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .addMoney {
+          flex-direction: column;
+        }
+
+        .edit {
+          flex-direction: column;
+        }
+
+        .addMoney button,
+        .edit button {
+          width: 100%;
+        }
+
+        .history h2 {
+          font-size: 24px;
+        }
+
+        .item {
+          flex-direction: column;
+
+          gap: 8px;
+
+          align-items: flex-start;
+        }
+      }
     </style>
   </head>
   <body>
@@ -405,9 +457,7 @@
       <div class="history">
         <h2>History</h2>
 
-        <div id="historyList">
-          
-        </div>
+        <div id="historyList"></div>
       </div>
     </div>
 
